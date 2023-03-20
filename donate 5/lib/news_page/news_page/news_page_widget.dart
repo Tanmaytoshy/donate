@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -81,13 +82,17 @@ class _NewsPageWidgetState extends State<NewsPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Max Rosco',
-                            style: FlutterFlowTheme.of(context).subtitle1,
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              currentUserDisplayName,
+                              style: FlutterFlowTheme.of(context).subtitle1,
+                            ),
                           ),
-                          Text(
-                            'Good morning Max!',
-                            style: FlutterFlowTheme.of(context).bodyText2,
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              'Hello ${currentUserDisplayName}',
+                              style: FlutterFlowTheme.of(context).bodyText2,
+                            ),
                           ),
                         ],
                       ),
@@ -160,12 +165,14 @@ class _NewsPageWidgetState extends State<NewsPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
-                  height: 200.0,
+                  height: 180.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                   child: StreamBuilder<List<NgoRecord>>(
                     stream: queryNgoRecord(
+                      queryBuilder: (ngoRecord) =>
+                          ngoRecord.where('TOPNGO', isEqualTo: true),
                       limit: 7,
                     ),
                     builder: (context, snapshot) {
@@ -250,20 +257,18 @@ class _NewsPageWidgetState extends State<NewsPageWidget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                              MainAxisAlignment.center,
                                           children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'NGO NAME',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .subtitle1,
-                                                ),
-                                              ],
+                                            Text(
+                                              'NGO NAME',
+                                              textAlign: TextAlign.start,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .subtitle1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18.0,
+                                                      ),
                                             ),
                                           ],
                                         ),

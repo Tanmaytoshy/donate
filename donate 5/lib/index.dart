@@ -23,3 +23,5 @@ export '/article_info_page/article_info_page_widget.dart'
     show ArticleInfoPageWidget;
 export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile_edit/profile_edit_widget.dart' show ProfileEditWidget;
+export '/confirmation_card2/confirmation_card2_widget.dart'
+    show ConfirmationCard2Widget;

@@ -178,7 +178,7 @@ class _RoleChoosePageWidgetState extends State<RoleChoosePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyText1.override(
                         fontFamily: 'Outfit',
                         color: Color(0xFFFFBA66),
-                        fontSize: 45.0,
+                        fontSize: 42.0,
                       ),
                 ),
               ),

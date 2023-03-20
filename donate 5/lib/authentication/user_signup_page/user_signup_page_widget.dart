@@ -97,7 +97,7 @@ class _UserSignupPageWidgetState extends State<UserSignupPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    height: 60.0,
+                    height: 58.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [
@@ -156,7 +156,7 @@ class _UserSignupPageWidgetState extends State<UserSignupPageWidget> {
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 24.0, 20.0, 24.0),
+                            20.0, 20.0, 20.0, 20.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
                       maxLines: null,
@@ -170,7 +170,7 @@ class _UserSignupPageWidgetState extends State<UserSignupPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(24.0, 14.0, 24.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    height: 60.0,
+                    height: 58.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       boxShadow: [
@@ -229,7 +229,7 @@ class _UserSignupPageWidgetState extends State<UserSignupPageWidget> {
                         fillColor:
                             FlutterFlowTheme.of(context).secondaryBackground,
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
-                            24.0, 24.0, 20.0, 24.0),
+                            20.0, 20.0, 20.0, 20.0),
                       ),
                       style: FlutterFlowTheme.of(context).bodyText1,
                       maxLines: null,

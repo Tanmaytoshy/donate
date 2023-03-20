@@ -99,13 +99,17 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Sahil',
-                            style: FlutterFlowTheme.of(context).subtitle1,
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              currentUserDisplayName,
+                              style: FlutterFlowTheme.of(context).subtitle1,
+                            ),
                           ),
-                          Text(
-                            'Hello Sahil!',
-                            style: FlutterFlowTheme.of(context).bodyText2,
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              'Hello ${currentUserDisplayName}',
+                              style: FlutterFlowTheme.of(context).bodyText2,
+                            ),
                           ),
                         ],
                       ),

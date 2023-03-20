@@ -41,6 +41,9 @@ abstract class NgoRecord implements Built<NgoRecord, NgoRecordBuilder> {
 
   String? get ngoid;
 
+  @BuiltValueField(wireName: 'TOPNGO')
+  bool? get topngo;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -58,7 +61,8 @@ abstract class NgoRecord implements Built<NgoRecord, NgoRecordBuilder> {
     ..aboutNgo = ''
     ..helpedPeople = 0
     ..ngoCity = ''
-    ..ngoid = '';
+    ..ngoid = ''
+    ..topngo = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('NGO');
@@ -95,6 +99,7 @@ Map<String, dynamic> createNgoRecordData({
   String? ngoCity,
   DocumentReference? user,
   String? ngoid,
+  bool? topngo,
 }) {
   final firestoreData = serializers.toFirestore(
     NgoRecord.serializer,
@@ -113,7 +118,8 @@ Map<String, dynamic> createNgoRecordData({
         ..helpedPeople = helpedPeople
         ..ngoCity = ngoCity
         ..user = user
-        ..ngoid = ngoid,
+        ..ngoid = ngoid
+        ..topngo = topngo,
     ),
   );
 

@@ -28,7 +28,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     _model = createModel(context, () => LoginPageModel());
 
     _model.emailTextController ??= TextEditingController();
-    _model.passwordTextController ??= TextEditingController(text: 'Password');
+    _model.passwordTextController ??= TextEditingController();
   }
 
   @override
@@ -86,24 +86,33 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   ),
                   Align(
                     alignment: AlignmentDirectional(-0.15, -0.75),
-                    child: Text(
-                      'Welcome Back',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Cookie',
-                            color: Color(0xFFFFBA66),
-                            fontSize: 70.0,
-                          ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Text(
+                        'Welcome Back',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Cookie',
+                              color: Color(0xFFFFBA66),
+                              fontSize: 70.0,
+                            ),
+                      ),
                     ),
                   ),
                   Align(
                     alignment: AlignmentDirectional(-0.02, -0.57),
-                    child: Text(
-                      'Sign in to your account \n',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            fontSize: 20.0,
-                          ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      child: Text(
+                        'Sign in to your account ',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              fontSize: 20.0,
+                            ),
+                      ),
                     ),
                   ),
                   Padding(
@@ -114,15 +123,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       autovalidateMode: AutovalidateMode.disabled,
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Align(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Align(
                                 alignment: AlignmentDirectional(0.0, 0.8),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      40.0, 0.0, 40.0, 0.0),
+                                      40.0, 30.0, 40.0, 20.0),
                                   child: TextFormField(
                                     controller: _model.emailTextController,
                                     autofocus: true,
@@ -134,7 +143,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           .bodyText2
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: Color(0x04100707),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryColor,
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -183,9 +193,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              child: Padding(
+                              Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     40.0, 0.0, 40.0, 0.0),
                                 child: TextFormField(
@@ -194,12 +202,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   obscureText: !_model.passwordVisibility,
                                   decoration: InputDecoration(
                                     labelText: 'Password',
-                                    hintText: 'Email',
+                                    hintText: 'Password',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodyText2
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryColor,
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -257,80 +266,104 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       .asValidator(context),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(-0.04, 0.34),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        GoRouter.of(context).prepareAuthEvent();
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 40.0, 0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    GoRouter.of(context).prepareAuthEvent();
 
-                        final user = await signInWithEmail(
-                          context,
-                          _model.emailTextController.text,
-                          _model.passwordTextController.text,
-                        );
-                        if (user == null) {
-                          return;
-                        }
+                                    final user = await signInWithEmail(
+                                      context,
+                                      _model.emailTextController.text,
+                                      _model.passwordTextController.text,
+                                    );
+                                    if (user == null) {
+                                      return;
+                                    }
 
-                        context.goNamedAuth('Homepage', mounted);
-                      },
-                      text: 'Sign in ',
-                      options: FFButtonOptions(
-                        width: 150.0,
-                        height: 50.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFFFFBA66),
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFF02010E),
+                                    context.goNamedAuth('Homepage', mounted);
+                                  },
+                                  text: 'Sign in ',
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFFFFBA66),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF02010E),
+                                        ),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(18.0),
+                                  ),
                                 ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 23.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-0.25, 0.53),
+                                      child: Text(
+                                        'New User?',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 18.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.32, 0.53),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context
+                                                .pushNamed('User_signup_page');
+                                          },
+                                          child: Text(
+                                            'Sign up!',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFFFFBA66),
+                                                  fontSize: 18.0,
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(18.0),
                       ),
                     ),
                   ),
                 ],
-              ),
-              Align(
-                alignment: AlignmentDirectional(-0.25, 0.53),
-                child: Text(
-                  'New User?',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        color: Colors.white,
-                        fontSize: 18.0,
-                      ),
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.32, 0.53),
-                child: InkWell(
-                  onTap: () async {
-                    context.pushNamed('User_signup_page');
-                  },
-                  child: Text(
-                    'Sign up!',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Poppins',
-                          color: Color(0xFFFFBA66),
-                          fontSize: 18.0,
-                          decoration: TextDecoration.underline,
-                        ),
-                  ),
-                ),
               ),
             ],
           ),

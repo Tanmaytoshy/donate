@@ -115,6 +115,13 @@ class _$NgoRecordSerializer implements StructuredSerializer<NgoRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.topngo;
+    if (value != null) {
+      result
+        ..add('TOPNGO')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -195,6 +202,10 @@ class _$NgoRecordSerializer implements StructuredSerializer<NgoRecord> {
           result.ngoid = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'TOPNGO':
+          result.topngo = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -238,6 +249,8 @@ class _$NgoRecord extends NgoRecord {
   @override
   final String? ngoid;
   @override
+  final bool? topngo;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$NgoRecord([void Function(NgoRecordBuilder)? updates]) =>
@@ -258,6 +271,7 @@ class _$NgoRecord extends NgoRecord {
       this.ngoCity,
       this.user,
       this.ngoid,
+      this.topngo,
       this.ffRef})
       : super._();
 
@@ -286,6 +300,7 @@ class _$NgoRecord extends NgoRecord {
         ngoCity == other.ngoCity &&
         user == other.user &&
         ngoid == other.ngoid &&
+        topngo == other.topngo &&
         ffRef == other.ffRef;
   }
 
@@ -306,23 +321,26 @@ class _$NgoRecord extends NgoRecord {
                                                     $jc(
                                                         $jc(
                                                             $jc(
-                                                                0,
-                                                                nameoforganization
+                                                                $jc(
+                                                                    0,
+                                                                    nameoforganization
+                                                                        .hashCode),
+                                                                nameofmanager
                                                                     .hashCode),
-                                                            nameofmanager
+                                                            conatctnumber
                                                                 .hashCode),
-                                                        conatctnumber.hashCode),
-                                                    emailid.hashCode),
-                                                address.hashCode),
-                                            password.hashCode),
-                                        stateyourmission.hashCode),
-                                    image.hashCode),
-                                noofvolunteers.hashCode),
-                            aboutNgo.hashCode),
-                        helpedPeople.hashCode),
-                    ngoCity.hashCode),
-                user.hashCode),
-            ngoid.hashCode),
+                                                        emailid.hashCode),
+                                                    address.hashCode),
+                                                password.hashCode),
+                                            stateyourmission.hashCode),
+                                        image.hashCode),
+                                    noofvolunteers.hashCode),
+                                aboutNgo.hashCode),
+                            helpedPeople.hashCode),
+                        ngoCity.hashCode),
+                    user.hashCode),
+                ngoid.hashCode),
+            topngo.hashCode),
         ffRef.hashCode));
   }
 
@@ -343,6 +361,7 @@ class _$NgoRecord extends NgoRecord {
           ..add('ngoCity', ngoCity)
           ..add('user', user)
           ..add('ngoid', ngoid)
+          ..add('topngo', topngo)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -412,6 +431,10 @@ class NgoRecordBuilder implements Builder<NgoRecord, NgoRecordBuilder> {
   String? get ngoid => _$this._ngoid;
   set ngoid(String? ngoid) => _$this._ngoid = ngoid;
 
+  bool? _topngo;
+  bool? get topngo => _$this._topngo;
+  set topngo(bool? topngo) => _$this._topngo = topngo;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -437,6 +460,7 @@ class NgoRecordBuilder implements Builder<NgoRecord, NgoRecordBuilder> {
       _ngoCity = $v.ngoCity;
       _user = $v.user;
       _ngoid = $v.ngoid;
+      _topngo = $v.topngo;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -474,6 +498,7 @@ class NgoRecordBuilder implements Builder<NgoRecord, NgoRecordBuilder> {
             ngoCity: ngoCity,
             user: user,
             ngoid: ngoid,
+            topngo: topngo,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

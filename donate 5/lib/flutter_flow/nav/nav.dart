@@ -174,6 +174,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Profile_edit',
           path: '/profileEdit',
           builder: (context, params) => ProfileEditWidget(),
+        ),
+        FFRoute(
+          name: 'confirmation_card2',
+          path: '/confirmationCard2',
+          builder: (context, params) => ConfirmationCard2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
