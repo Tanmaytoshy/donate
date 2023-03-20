@@ -81,8 +81,8 @@ class _Confirmationcard1WidgetState extends State<Confirmationcard1Widget> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    Navigator.pop(context);
                   },
                   text: 'Take me back',
                   options: FFButtonOptions(

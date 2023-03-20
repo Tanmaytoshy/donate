@@ -8,9 +8,7 @@ export '/news_page/ngo_event_book_page/ngo_event_book_page_widget.dart'
     show NgoEventBookPageWidget;
 export '/restaurant_add_food_info_page/restaurant_add_food_info_page_widget.dart'
     show RestaurantAddFoodInfoPageWidget;
-export '/ngo_front_page/ngo_front_page_widget.dart' show NgoFrontPageWidget;
 export '/authentication/login_page/login_page_widget.dart' show LoginPageWidget;
-export '/onboarding_page/onboarding_page_widget.dart' show OnboardingPageWidget;
 export '/authentication/role_choose_page/role_choose_page_widget.dart'
     show RoleChoosePageWidget;
 export '/authentication/ngo_signup_page/ngo_signup_page_widget.dart'
@@ -25,3 +23,7 @@ export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile_edit/profile_edit_widget.dart' show ProfileEditWidget;
 export '/confirmation_card2/confirmation_card2_widget.dart'
     show ConfirmationCard2Widget;
+export '/volunteer_ngo_signup/volunteer_ngo_signup_widget.dart'
+    show VolunteerNgoSignupWidget;
+export '/join_confirmationcard/join_confirmationcard_widget.dart'
+    show JoinConfirmationcardWidget;

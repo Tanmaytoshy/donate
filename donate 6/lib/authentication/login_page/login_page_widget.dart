@@ -138,6 +138,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Email',
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryColor,
+                                          ),
                                       hintText: 'Email',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyText2
@@ -202,6 +209,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   obscureText: !_model.passwordVisibility,
                                   decoration: InputDecoration(
                                     labelText: 'Password',
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryColor,
+                                          fontSize: 20.0,
+                                        ),
                                     hintText: 'Password',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodyText2

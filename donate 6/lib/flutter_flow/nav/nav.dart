@@ -123,19 +123,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Ngo_Front_page',
-          path: '/ngoFrontPage',
-          builder: (context, params) => NgoFrontPageWidget(),
-        ),
-        FFRoute(
           name: 'login_page',
           path: '/loginPage',
           builder: (context, params) => LoginPageWidget(),
-        ),
-        FFRoute(
-          name: 'onboarding_page',
-          path: '/onboardingPage',
-          builder: (context, params) => OnboardingPageWidget(),
         ),
         FFRoute(
           name: 'Role_choose_page',
@@ -179,6 +169,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'confirmation_card2',
           path: '/confirmationCard2',
           builder: (context, params) => ConfirmationCard2Widget(),
+        ),
+        FFRoute(
+          name: 'volunteer_ngo_signup',
+          path: '/volunteerNgoSignup',
+          builder: (context, params) => VolunteerNgoSignupWidget(),
+        ),
+        FFRoute(
+          name: 'join_confirmationcard',
+          path: '/joinConfirmationcard',
+          builder: (context, params) => JoinConfirmationcardWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
