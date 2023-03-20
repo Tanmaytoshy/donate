@@ -8,12 +8,10 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ArticlesRecord.serializer)
-      ..add(Donor2Record.serializer)
       ..add(DonorRecord.serializer)
       ..add(EventsRecord.serializer)
       ..add(FoodResInfoRecord.serializer)
       ..add(LatestupdatesRecord.serializer)
-      ..add(NgoInfoRecord.serializer)
       ..add(NgoRecord.serializer)
       ..add(UsersRecord.serializer)
       ..add(VolunteerRecord.serializer))

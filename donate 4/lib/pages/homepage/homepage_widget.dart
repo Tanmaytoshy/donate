@@ -487,7 +487,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                         ],
                       ),
                     ),
-                  if (valueOrDefault(currentUserDocument?.type, '') == 'DONOR')
+                  if (valueOrDefault(currentUserDocument?.type, '') == 'NGO')
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),

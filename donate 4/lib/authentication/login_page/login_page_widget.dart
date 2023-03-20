@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'login_page_model.dart';
@@ -194,7 +193,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   autofocus: true,
                                   obscureText: !_model.passwordVisibility,
                                   decoration: InputDecoration(
-                                    labelText: 'Email',
+                                    labelText: 'Password',
                                     hintText: 'Email',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodyText2
@@ -256,10 +255,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   validator: _model
                                       .passwordTextControllerValidator
                                       .asValidator(context),
-                                  inputFormatters: [
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp('[a-zA-Z0-9]'))
-                                  ],
                                 ),
                               ),
                             ),
