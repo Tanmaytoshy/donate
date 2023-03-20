@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "553302304808",
+    "project_id": "donate-a511b",
+    "storage_bucket": "donate-a511b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553302304808:android:25b2876abe7ede93aaad1d",
+        "android_client_info": {
+          "package_name": "com.donate.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553302304808-pdn3s289ioc6vp1umki4o7jgjsjgfma9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.donate.app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "553302304808-88dovnkn7qe25svr9k8a7bveba1qmp45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4DxQi_YDj5SFdj2xujIArET0mRF1XnGo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553302304808-88dovnkn7qe25svr9k8a7bveba1qmp45.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "553302304808-461dkgv2de7ticrcfnnv402almivistn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.donate.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
