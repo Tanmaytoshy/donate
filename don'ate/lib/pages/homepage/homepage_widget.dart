@@ -84,69 +84,70 @@ class _HomepageWidgetState extends State<HomepageWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
-                        child: ClipRRect(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 12.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40.0),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-                            width: 40.0,
-                            height: 40.0,
-                            fit: BoxFit.cover,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              2.0, 2.0, 2.0, 2.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(40.0),
+                            child: Image.network(
+                              'https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+                              width: 40.0,
+                              height: 40.0,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AuthUserStreamWidget(
-                            builder: (context) => Text(
-                              currentUserDisplayName,
-                              style: FlutterFlowTheme.of(context).subtitle1,
-                            ),
-                          ),
-                          AuthUserStreamWidget(
-                            builder: (context) => Text(
-                              'Hello ${currentUserDisplayName}',
-                              style: FlutterFlowTheme.of(context).bodyText2,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 1.0,
-              ),
-              Stack(
-                children: [
-                  if (valueOrDefault(currentUserDocument?.type, '') ==
-                      'VOLUNTEER')
-                    AuthUserStreamWidget(
-                      builder: (context) => SingleChildScrollView(
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                         child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                currentUserDisplayName,
+                                style: FlutterFlowTheme.of(context).subtitle1,
+                              ),
+                            ),
+                            AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                'Hello ${currentUserDisplayName}',
+                                style: FlutterFlowTheme.of(context).bodyText2,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Divider(
+                  thickness: 1.0,
+                ),
+                Stack(
+                  children: [
+                    if (valueOrDefault(currentUserDocument?.type, '') ==
+                        'VOLUNTEER')
+                      AuthUserStreamWidget(
+                        builder: (context) => Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Row(
@@ -468,11 +469,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                           ],
                         ),
                       ),
-                    ),
-                  if (valueOrDefault(currentUserDocument?.type, '') == 'NGO')
-                    AuthUserStreamWidget(
-                      builder: (context) => SingleChildScrollView(
-                        child: Column(
+                    if (valueOrDefault(currentUserDocument?.type, '') == 'NGO')
+                      AuthUserStreamWidget(
+                        builder: (context) => Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             if (valueOrDefault(currentUserDocument?.type, '') ==
@@ -833,11 +832,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                           ],
                         ),
                       ),
-                    ),
-                  if (valueOrDefault(currentUserDocument?.type, '') == 'DONOR')
-                    AuthUserStreamWidget(
-                      builder: (context) => SingleChildScrollView(
-                        child: Column(
+                    if (valueOrDefault(currentUserDocument?.type, '') ==
+                        'DONOR')
+                      AuthUserStreamWidget(
+                        builder: (context) => Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
@@ -1125,10 +1123,10 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                           ],
                         ),
                       ),
-                    ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
